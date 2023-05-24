@@ -1,7 +1,6 @@
 # Typescript-Summary
 
-# Ref:
-
+## Ref:
 -[Jonas course]
 
 (1) : https://github.com/jonasschmedtmann/complete-javascript-course/blob/master/14-OOP/final/script.js
