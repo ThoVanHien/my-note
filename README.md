@@ -1,5 +1,15 @@
 # Typescript-Summary
 
+# Ref:
+
+-[Jonas course]
+
+(1) : https://github.com/jonasschmedtmann/complete-javascript-course/blob/master/14-OOP/final/script.js
+
+(2) : https://www.udemy.com/course/the-complete-javascript-course/
+
+-[TypeScript Tutorial]: https://www.typescripttutorial.net/
+
 ## OOP in Javascript
 
 ### 1. `Constructor Functions` and `new` Operator
