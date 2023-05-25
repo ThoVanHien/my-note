@@ -171,9 +171,13 @@ Student.prototype.introduce = function () {
 };
 ```
 
-![Xinchao](./assets/prototype9.png)
+## ![Xinchao](./assets/prototype9.png)
+
+---
 
 ### 7. `Inheritance` Between "Classes": `ES6 Classes`
+
+---
 
 #### 7.1 TypeScript `Access Modifiers`
 
@@ -207,6 +211,8 @@ let person = new Person("153-07-3130", "John", "Doe");
 console.log(person.ssn); // compile error
 ```
 
+---
+
 #### 7.2 TypeScript `readonly`
 
 ```typescript
@@ -230,6 +236,8 @@ person.birthDate = new Date(1991, 12, 25); // Compile error
   | Use for        | Class properties                                           | Variables          |
   | Initialization | In the declaration or in the constructor of the same class | In the declaration |
 
+---
+
 #### 7.3 TypeScript `Inheritance`
 
 - Use the extends keyword to allow a class to inherit from another class.
@@ -248,6 +256,8 @@ person.birthDate = new Date(1991, 12, 25); // Compile error
     }
   }
   ```
+
+---
 
 #### 7.4 TypeScript `Static`
 
@@ -295,3 +305,164 @@ class FullTimeEmployee extends Employee {
   }
 }
 ```
+
+---
+
+#### 7.6 `Interface`
+
+- Interfaces are typically used as class types that make a contract between unrelated classes.
+
+- TypeScript interfaces define `contracts` in your code and provide explicit names for `type checking`.
+
+  ```typescript
+  interface Json {
+    toJSON(): string;
+  }
+  //Have to implement method in interface
+  class Person implements Json {
+    constructor(private firstName: string, private lastName: string) {}
+    toJson(): string {
+      return JSON.stringify(this);
+    }
+  }
+  ```
+
+  ```typescript
+  interface Person {
+    readonly ssn: string;
+    firstName: string;
+    lastName: string;
+  }
+
+  let person: Person;
+  person = {
+    ssn: "171-28-0926",
+    firstName: "John",
+    lastName: "Doe",
+  };
+  ```
+
+- Interfaces may have `optional properties` or `readonly properties`.
+
+  ```typescript
+  interface Person {
+    readonly ssn: string;
+    firstName?: string;
+    lastName: string;
+  }
+  ```
+
+- Interfaces can be used as `function types`.
+
+  ```typescript
+  interface StringFormat {
+    (str: string, isUpper: boolean): string;
+  }
+
+  let format: StringFormat;
+  format = function (str: string, isUpper: boolean) {
+    return isUpper ? str.toLocaleUpperCase() : str.toLocaleLowerCase();
+  };
+  console.log(format("hi", true)); //HI
+  ```
+
+- An interface can extend one or multiple existing interfaces.
+
+  ```typescript
+  interface C {
+    c(): void;
+  }
+
+  interface D extends B, C {
+    d(): void;
+  }
+  ```
+
+- An interface also can extend a class. If the class contains private or protected members, the interface can only be implemented by the class or subclasses of that class.
+
+  ```typescript
+  class Control {
+    private state: boolean;
+  }
+
+  interface StatefulControl extends Control {
+    enable(): void;
+  }
+
+  class Button extends Control implements StatefulControl {
+    enable() {}
+  }
+  class TextBox extends Control implements StatefulControl {
+    enable() {}
+  }
+  class Label extends Control {}
+
+  // Error: cannot implement because StatefulControl not subclass of Control
+  class Chart implements StatefulControl {
+    enable() {}
+  }
+  ```
+
+---
+
+#### 7.7 Type
+
+```typescript
+type typeAB = typeA & typeB; //`intersection` typeAB = {...typeA, ...typeB} same type if same key
+type typeAB = typeA | typeB; // `union` type
+//typeA: number,string,boolean,undefined,null,bitInt,never,type*, object, interface, class...
+```
+
+- `Type Guards`:
+  ```typescript
+   - typeof === 'string | number...'
+   - A instanceof B
+   - A.property in A
+   - custom(arg):arg `is` custom  {return 1 of 3 type guards}
+  ```
+- `Type Castings`:
+
+  ```typescript
+   ClassB is subclass of ClassA
+   newA = ClassA* || newA = ClassB
+   newA.propertyOfClassB // Error
+   (newA as ClassB).propertyOfClassB => newA.propertyOfClassB // down casting
+   OR
+   let a: typeA;
+   let b = <typeB>a; // condition: typeA is superset of typeB
+
+  ```
+
+- `Generics` Eliminate `type castings`.
+
+  ```typescript
+  function getRandomElement<T>(items: T[]): T {
+    let randomIndex = Math.floor(Math.random() * items.length);
+    return items[randomIndex];
+  }
+  //Call fn
+  let numbers = [1, 5, 7, 4, 2, 9];
+  let randomEle = getRandomElement<number>(numbers);
+  console.log(randomEle);
+  //OR
+  let numbers = [1, 5, 7, 4, 2, 9]; //base on type of args
+  let randomEle = getRandomElement(numbers);
+  console.log(randomEle);
+
+  //Some ex
+  function merge<U extends object, V extends object>(obj1: U, obj2: V) {
+    return {
+      ...obj1,
+      ...obj2, // because ...2 = 2 //no error
+    };
+  }
+  //and
+  function prop<T, K extends keyof T>(obj: T, key: K) {
+    return obj[key];
+  }
+  let str = prop({ name: "John" }, "name");
+  ```
+
+- `Generic` In practice:
+  - https://www.typescripttutorial.net/typescript-tutorial/typescript-generic-classes/
+  - https://www.typescripttutorial.net/typescript-tutorial/typescript-generic-interfaces/
