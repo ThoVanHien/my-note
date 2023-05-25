@@ -1,7 +1,6 @@
 # Typescript-Summary
 
-# Ref:
-
+## Ref:
 -[Jonas course]
 
 (1) : https://github.com/jonasschmedtmann/complete-javascript-course/blob/master/14-OOP/final/script.js
@@ -27,12 +26,12 @@ const Person = function (firstName, birthYear) {
   this.calcAge = function () {
     console.log(2037 - this.birthYear);
   };
-  const vanhien = new Person("TVH", 1998);
 };
 //Should be:
 Person.calcAge = function () {
   console.log(2037 - this.birthYear);
 };
+const vanhien = new Person("TVH", 1998);
 ```
 
 ```
