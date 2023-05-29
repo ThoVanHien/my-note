@@ -230,7 +230,7 @@ person.birthDate = new Date(1991, 12, 25); // Compile error
 - Use the readonly access modifier to mark a class property as immutable.
 - A readonly property must be initialized as a part of the declaration or in the constructor of the same class.
 
-  |                | Second Header                                              | First Header       |
+  |                | readonly properties                                              | const       |
   | -------------- | ---------------------------------------------------------- | ------------------ |
   | Use for        | Class properties                                           | Variables          |
   | Initialization | In the declaration or in the constructor of the same class | In the declaration |
