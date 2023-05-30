@@ -61,8 +61,9 @@ const vanhien = new Person("TVH", 1998);
 
 (6) Function`__proto__`.`__proto__`.`__proto__` === null
 
-> > > > > > > > > > ![Xinchao](./assets/prototype1.png)
-
+<p align="center" width=100%>
+<img width=33% src="./assets/prototype1.png">
+</p>
 ---
 
 ### 3. `Prototypal Inheritance` on Built-In Objects
