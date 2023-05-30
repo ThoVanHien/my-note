@@ -62,7 +62,7 @@ const vanhien = new Person("TVH", 1998);
 (6) Function`__proto__`.`__proto__`.`__proto__` === null
 
 <p align="center" width=100%>
-<img width=33% src="./assets/prototype1.png">
+<img width=100% src="./assets/prototype1.png">
 </p>
 ---
 
