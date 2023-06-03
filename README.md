@@ -1,6 +1,7 @@
 # Typescript-Summary
 
 ## Ref:
+
 -[Jonas course]
 
 (1) : https://github.com/jonasschmedtmann/complete-javascript-course/blob/master/14-OOP/final/script.js
@@ -64,9 +65,12 @@ const vanhien = new Person("TVH", 1998);
 <p align="center" width=100%>
 <img width=100% src="./assets/prototype1.png">
 </p>
+
 ---
 
 ### 3. `Prototypal Inheritance` on Built-In Objects
+
+---
 
 ```javascript
 Array.prototype.unique = function () {
@@ -76,7 +80,9 @@ Array.prototype.unique = function () {
 [1, 1, 3].unique(); // [1,3], Because [1,1,3] is instance of Array.
 ```
 
-> > > > > > > > > > ![Xinchao](./assets/prototype2.png)
+<p align="center" width=100%>
+<img width=50% src="./assets/prototype2.png">
+</p>
 
 ### 4. `ES6 Class`
 
@@ -87,28 +93,35 @@ There are a few points to note:
 
 - Method in Class will be added to `prototype` property:
 
-> > > > > > > > > > ![Xinchao](./assets/prototype3.png)
-
+<p align="center" width=100%>
+<img width=50% src="./assets/prototype3.png">
+</p>
 - `set` & `get` on class:
 
-  - `get` on class:
+- `get` on class:
 
-    > > > > > > > > > ![Xinchao](./assets/prototype4.png)
+  <p align="center" width=100%>
+    <img width=50% src="./assets/prototype4.png">
+  </p>
 
-  - `set` any value on class:
+- `set` any value on class:
 
-    > > > > > > > > > ![Xinchao](./assets/prototype5.png)
+<p align="center" width=100%>
+    <img width=50% src="./assets/prototype5.png">
+  </p>
+- `set` a property that already exists on class:
+<p align="center" width=100%>
+    <img width=50% src="./assets/prototype6.png">
+</p>
+<p align="center" width=100%>
+    <img width=5% src="./assets/arrow-down.png">
+  </p>
+<p align="center" width=100%>
+    <img width=50% src="./assets/prototype7.png">
+  </p>
+- `set` syntax:
 
-  - `set` a property that already exists on class:
-
-    > > > > > > > > > ![Xinchao](./assets/prototype6.png)
-    > > > > > > > > >
-    > > > > > > > > > > > > > > > > ![Xinchao](./assets/arrow-down.png)
-    > > > > > > > > >
-    > > > > > > > > > ![Xinchao](./assets/prototype7.png)
-
-  - `set` syntax:
-    > instanceof.setValue `=` value
+> instanceof.setValue `=` value
 
 - Classes are NOT `hoisted`
 - Classes are first-class citizens
@@ -117,28 +130,31 @@ There are a few points to note:
 ### 5. `Object.create`
 
 - `Property` and `Method` of class || obj will be added `.prototype` of obj which is created by Object.create()
-  > > > > > > > > > ![Xinchao](./assets/prototype8.png)
+<p align="center" width=100%>
+    <img width=50% src="./assets/prototype8.png">
+</p>
+
 - > instanceof.`__proto__` === `Object`
 - Can do like this:
 
-  ```javascript
-  // Object.create
-  const PersonProto = {
-    calcAge() {
-      console.log(2037 - this.birthYear);
-    },
+```javascript
+// Object.create
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
 
-    init(firstName, birthYear) {
-      this.firstName = firstName;
-      this.birthYear = birthYear;
-    },
-  };
-  const steven = Object.create(PersonProto);
-  console.log(steven); // {}
-  steven.name = "Steven";
-  steven.birthYear = 2002;
-  steven.calcAge();
-  ```
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+const steven = Object.create(PersonProto);
+console.log(steven); // {}
+steven.name = "Steven";
+steven.birthYear = 2002;
+steven.calcAge();
+```
 
 ### 6. `Inheritance` Between "Classes": `Constructor Functions`
 
@@ -231,7 +247,7 @@ person.birthDate = new Date(1991, 12, 25); // Compile error
 - Use the readonly access modifier to mark a class property as immutable.
 - A readonly property must be initialized as a part of the declaration or in the constructor of the same class.
 
-  |                | readonly properties                                              | const       |
+  |                | readonly properties                                        | const              |
   | -------------- | ---------------------------------------------------------- | ------------------ |
   | Use for        | Class properties                                           | Variables          |
   | Initialization | In the declaration or in the constructor of the same class | In the declaration |
