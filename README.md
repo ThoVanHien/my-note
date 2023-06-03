@@ -81,7 +81,7 @@ Array.prototype.unique = function () {
 ```
 
 <p align="center" width=100%>
-<img width=50% src="./assets/prototype2.png">
+<img width=80% src="./assets/prototype2.png">
 </p>
 
 ### 4. `ES6 Class`
@@ -94,30 +94,30 @@ There are a few points to note:
 - Method in Class will be added to `prototype` property:
 
 <p align="center" width=100%>
-<img width=50% src="./assets/prototype3.png">
+<img width=80% src="./assets/prototype3.png">
 </p>
 - `set` & `get` on class:
 
 - `get` on class:
 
   <p align="center" width=100%>
-    <img width=50% src="./assets/prototype4.png">
+    <img width=80% src="./assets/prototype4.png">
   </p>
 
 - `set` any value on class:
 
 <p align="center" width=100%>
-    <img width=50% src="./assets/prototype5.png">
+    <img width=80% src="./assets/prototype5.png">
   </p>
 - `set` a property that already exists on class:
 <p align="center" width=100%>
-    <img width=50% src="./assets/prototype6.png">
+    <img width=80% src="./assets/prototype6.png">
 </p>
 <p align="center" width=100%>
     <img width=5% src="./assets/arrow-down.png">
   </p>
 <p align="center" width=100%>
-    <img width=50% src="./assets/prototype7.png">
+    <img width=80% src="./assets/prototype7.png">
   </p>
 - `set` syntax:
 
@@ -131,7 +131,7 @@ There are a few points to note:
 
 - `Property` and `Method` of class || obj will be added `.prototype` of obj which is created by Object.create()
 <p align="center" width=100%>
-    <img width=50% src="./assets/prototype8.png">
+    <img width=80% src="./assets/prototype8.png">
 </p>
 
 - > instanceof.`__proto__` === `Object`
